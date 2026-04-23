@@ -1,5 +1,5 @@
 import pygame
-
+from Player import player
 
 # pygame setup
 
@@ -10,6 +10,7 @@ running = True
 dt = 0 # delta time
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 
+P1 = player(100,player_pos)
 
 # pygame.QUIT event occurs when user clicks escape
 while running:
@@ -31,13 +32,13 @@ while running:
 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_w]:
-        player_pos.y -= 600 * dt
+        P1.pos.y -= P1.speed * dt
     if keys[pygame.K_s]:
-        player_pos.y += 600 * dt
+        P1.pos.y += P1.speed * dt
     if keys[pygame.K_a]:
-        player_pos.x -= 600 * dt
+        P1.pos.x -= P1.speed * dt
     if keys[pygame.K_d]:
-        player_pos.x += 600 * dt
+        P1.pos.x += P1.speed * dt
 
     
 
