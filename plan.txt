@@ -3,7 +3,7 @@ Kavish: Work on main character design, make a side, up and down animation.
 Anas: Work on basic mechanics.
 
 Part 1:
-1. Get the character moving in the home world.
+1. Get the character moving in the home world, map is 60 x 33 grid. Single tile is 32 x 32 pixels.
 
 2. Add more design to the map with multiple shops/ villages.
 
