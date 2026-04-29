@@ -18,6 +18,14 @@ P1 = player(100,player_pos, 300)
 cam =  camera(P1)
 water = pygame.image.load("TestTiles/water.png")
 grass = pygame.image.load("TestTiles/grass.png")
+path = pygame.image.load("TestTiles/path.png")
+grass_left = pygame.image.load("TestTiles/grass-path-left.png")
+grass_right = pygame.image.load("TestTiles/grass-path-right.png")
+grass_up = pygame.image.load("TestTiles/grass-path-up.png")
+grass_down = pygame.image.load("TestTiles/grass-path-down.png")
+grass_lbcorner = pygame.image.load("TestTiles/grass-corner-one.png")
+
+
 
 #load map data into the map
 for i in map_data:
@@ -43,6 +51,18 @@ while running:
                 screen.blit(grass, (col * Tile_Size - cam.offset.x, row * Tile_Size - cam.offset.y))
             elif map[row][col] == '1':
                 screen.blit(water, (col * Tile_Size - cam.offset.x, row * Tile_Size - cam.offset.y))
+            elif map[row][col] == '2':
+                screen.blit(grass_left, (col* Tile_Size - cam.offset.x, row* Tile_Size - cam.offset.y))
+            elif map[row][col] == '3':
+                screen.blit(path, (col* Tile_Size - cam.offset.x, row* Tile_Size - cam.offset.y))
+            elif map[row][col] == '4':
+                screen.blit(grass_right, (col* Tile_Size - cam.offset.x, row* Tile_Size - cam.offset.y))
+            elif map[row][col] == '5':
+                screen.blit(grass_up, (col* Tile_Size - cam.offset.x, row* Tile_Size - cam.offset.y))
+            elif map[row][col] == '6':
+                screen.blit(grass_down, (col* Tile_Size - cam.offset.x, row* Tile_Size - cam.offset.y))
+            elif map[row][col] == '7':
+                screen.blit(grass_lbcorner, (col* Tile_Size - cam.offset.x, row* Tile_Size - cam.offset.y))
     
 
     # draw a red circle on the screen imma test it
