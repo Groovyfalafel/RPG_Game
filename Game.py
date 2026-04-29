@@ -14,8 +14,7 @@ dt = 0 # delta time
 player_pos = pygame.Vector2(Width / 2, Height / 2)
 map_data = open("TestTiles/MapTest.txt", "r")
 map = []
-P1 = player(100,player_pos, 300)
-cam =  camera(P1)
+P1 = player(100,player_pos, 1100)
 water = pygame.image.load("TestTiles/water.png")
 grass = pygame.image.load("TestTiles/grass.png")
 path = pygame.image.load("TestTiles/path.png")
@@ -32,6 +31,10 @@ for i in map_data:
         i = i.strip()
         if i != "":
             map.append(i)
+
+map_width = len(map[0]) * Tile_Size
+map_length = len(map) * Tile_Size
+cam =  camera(P1, map_width, map_length)
 
 # pygame.QUIT event occurs when user clicks escape
 while running:
@@ -81,7 +84,14 @@ while running:
     if keys[pygame.K_d]:
         P1.pos.x += P1.speed * dt
 
-    
+    if P1.pos.x > map_width:
+        P1.pos.x -= 50
+    elif P1.pos.x < 0:
+        P1.pos.x += 50
+    elif P1.pos.y > map_length:
+        P1.pos.y -= 50
+    elif P1.pos.y < 0:
+        P1.pos.y += 50
 
     # close game
     if keys[pygame.K_ESCAPE]:
