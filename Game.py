@@ -15,7 +15,6 @@ player_pos = pygame.Vector2(Width / 2, Height / 2)
 map_data = open("TestTiles/MapTest.txt", "r")
 map = []
 P1 = player(100,player_pos, 300)
-cam =  camera(P1)
 water = pygame.image.load("TestTiles/water.png")
 grass = pygame.image.load("TestTiles/grass.png")
 
@@ -24,6 +23,10 @@ for i in map_data:
         i = i.strip()
         if i != "":
             map.append(i)
+
+map_width = len(map[0]) * Tile_Size
+map_length = len(map) * Tile_Size
+cam =  camera(P1, map_width, map_length)
 
 # pygame.QUIT event occurs when user clicks escape
 while running:
